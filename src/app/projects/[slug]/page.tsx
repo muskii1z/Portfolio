@@ -43,6 +43,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           {project.title}
         </h1>
         <p className="text-lg text-neutral-600 mb-6">{project.tagline}</p>
+        {project.metrics && (
+          <p className="text-lg md:text-xl font-bold text-black mb-6">
+            {project.metrics}
+          </p>
+        )}
         <div className="flex flex-wrap items-center gap-3">
           <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
             {project.role}

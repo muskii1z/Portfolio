@@ -43,6 +43,7 @@ export interface Project {
     secondaryImpacts: string[];
     currentStatus: string;
   };
+  metrics?: string;
   reflection?: string;
   techStack?: string;
   imgSrc?: string;
@@ -54,6 +55,7 @@ export const projects: Project[] = [
     slug: "vitalz-hub",
     title: "Vitalz Hub",
     tagline: "Client healthcare platform unifying bloodwork, records, and supplements for the UAE market.",
+    metrics: "12 weeks → investor-ready MVP • 5 core modules • 20+ screens • Dubai stakeholder approval",
     role: "AI Product Manager",
     timeline: "Nov 2025 - Jan 2026",
     status: "shipped",

@@ -10,7 +10,7 @@ export function ThreePhonesComposite({ images }: ThreePhonesCompositeProps) {
       {images.slice(0, 3).map((img, i) => (
         <div
           key={i}
-          className="relative flex-1 aspect-[9/19.5] max-w-[120px] rounded-2xl overflow-hidden shadow-xl"
+          className="relative flex-1 aspect-[9/19.5] max-w-[80px] sm:max-w-[100px] md:max-w-[120px] rounded-2xl overflow-hidden shadow-xl"
         >
           <Image
             src={img.src}

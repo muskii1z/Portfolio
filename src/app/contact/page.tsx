@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
       <h1 className="text-3xl font-bold tracking-tight mb-4">Let&apos;s Talk</h1>
       <p className="text-neutral-600 mb-8">
         Need help figuring out where AI fits in your product? Let&apos;s talk.

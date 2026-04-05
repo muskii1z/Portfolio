@@ -16,7 +16,7 @@ export default function HomeHero({
         <ContainerScroll
           titleComponent={
             <div className="mb-8">
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight mb-4">
                 Musab Saraswat
               </h1>
               <p className="text-xl md:text-2xl text-neutral-600 font-medium mb-4">
@@ -30,16 +30,16 @@ export default function HomeHero({
                 3 products shipped • Healthcare, SaaS, EdTech • Concept to MVP
                 in weeks
               </p>
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                 <Link
                   href="/projects"
-                  className="bg-black text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-neutral-800 hover:scale-105 transition-all shadow-lg shadow-black/10"
+                  className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-medium hover:bg-neutral-800 hover:scale-105 transition-all shadow-lg shadow-black/10 w-full sm:w-auto text-center"
                 >
                   View My Work
                 </Link>
                 <Link
                   href="/contact"
-                  className="bg-white border border-neutral-200 px-8 py-4 rounded-full text-sm font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all shadow-lg shadow-black/5"
+                  className="bg-white border border-neutral-200 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all shadow-lg shadow-black/5 w-full sm:w-auto text-center"
                 >
                   Get in Touch
                 </Link>

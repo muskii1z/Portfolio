@@ -28,7 +28,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* Back link */}
       <Link
         href="/"
@@ -38,8 +38,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </Link>
 
       {/* Header Card */}
-      <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-8 mb-8">
-        <h1 className="text-3xl font-bold tracking-tight mb-3">
+      <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-5 sm:p-8 mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
           {project.title}
         </h1>
         <p className="text-lg text-neutral-600 mb-6">{project.tagline}</p>
@@ -96,7 +96,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       ) : null}
 
       {/* The Hook - Highlighted */}
-      <div className="bg-black text-white rounded-2xl p-8 mb-10">
+      <div className="bg-black text-white rounded-2xl p-5 sm:p-8 mb-10">
         <p className="text-lg leading-relaxed">
           {project.hook}
         </p>
@@ -180,9 +180,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <h2 className="text-xl font-bold mb-4">Key Product Decisions</h2>
         <div className="space-y-4">
           {project.decisions.map((decision, index) => (
-            <div key={index} className="bg-white border border-neutral-200 rounded-xl p-5 hover:border-neutral-300 transition-colors">
-              <h3 className="font-semibold text-black mb-3">{decision.decision}</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div key={index} className="bg-white border border-neutral-200 rounded-xl p-4 sm:p-5 hover:border-neutral-300 transition-colors">
+              <h3 className="font-semibold text-black mb-3 text-sm sm:text-base">{decision.decision}</h3>
+              <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 text-sm">
                 <div>
                   <span className="text-neutral-400 uppercase tracking-wide text-xs font-medium">Options</span>
                   <p className="text-neutral-600 mt-1">{decision.options.join(" · ")}</p>

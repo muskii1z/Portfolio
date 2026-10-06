@@ -11,10 +11,12 @@ The source for my portfolio site: case studies of the AI products I've built and
 - A Calendly embed for booking calls
 - Deployed on Vercel
 
+All content lives in `src/data/` (case studies in `src/data/work/`, plus experience and site settings), so pages render from data and copy changes never touch components.
+
 ## Pages
 
-- `/`: home, with case-study cards
-- `/projects`: project case studies
+- `/`: home, with headline results, featured work, and experience
+- `/work` and `/work/<slug>`: case studies (the old `/projects` URLs redirect here)
 - `/about`, `/contact`, `/resume`
 - `/preview`: shows every page inside phone-sized frames with device toggles, for checking mobile layouts without browser dev tools
 

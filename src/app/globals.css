@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/*  Lab design system — scrapbook motifs in the Loop to Harness style. */
+/*  Thick ink borders, hard offset shadows, pastel color-coded blocks. */
+/* ------------------------------------------------------------------ */
+@theme static {
+  --color-ground: #f2f7ff;
+  --color-surface: #ffffff;
+  --color-ink: #1a1a2e;
+  --color-muted: #4a4a68;
+
+  --color-idea: #ffd447;
+  --color-learn: #6aa5ff;
+  --color-read: #b49bff;
+  --color-build: #ffa24c;
+  --color-done: #3ccb93;
+  --color-watch: #ff7a7a;
+  --color-practice: #4fd3db;
+  --color-warm: #ff9bd2;
+
+  --color-idea-soft: #fff3c4;
+  --color-learn-soft: #e3eeff;
+  --color-read-soft: #eee8ff;
+  --color-build-soft: #ffebd8;
+  --color-done-soft: #ddf7ec;
+  --color-watch-soft: #ffe3e3;
+  --color-practice-soft: #ddf8f9;
+  --color-warm-soft: #ffe6f4;
+
+  --font-display: var(--font-fredoka), "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: var(--font-nunito), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-lab: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-hand: var(--font-caveat), "Bradley Hand", "Segoe Print", cursive;
+  --font-pixel: var(--font-pixelify), "Courier New", ui-monospace, monospace;
+}
+
+/* Legacy tokens still read by the not-yet-redone pages. */
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -13,6 +49,109 @@ body {
 }
 
 ::selection {
-  background: #000000;
+  background: var(--color-ink);
   color: #ffffff;
+}
+
+:focus-visible {
+  outline: 3px solid #2f56d0;
+  outline-offset: 3px;
+}
+
+@layer components {
+  /* Lined notebook paper on the lab's pale-blue ground. */
+  .paper {
+    background-color: var(--color-ground);
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 33px,
+        rgba(106, 165, 255, 0.2) 33px,
+        rgba(106, 165, 255, 0.2) 34px
+      );
+    color: var(--color-ink);
+  }
+
+  /* Chunky block: thick ink border + hard offset shadow. */
+  .blk {
+    background: var(--color-surface);
+    border: 3px solid var(--color-ink);
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 var(--color-ink);
+  }
+
+  /* Press-down button. */
+  .btn-chunky {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font: 700 17px/1.15 var(--font-display);
+    color: var(--color-ink);
+    background: var(--color-surface);
+    border: 3px solid var(--color-ink);
+    border-radius: 14px;
+    padding: 13px 20px;
+    box-shadow: 4px 4px 0 var(--color-ink);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .btn-chunky:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--color-ink);
+  }
+  .btn-chunky:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--color-ink);
+  }
+
+  /* Small label sticker (mono caps on a tinted pill). */
+  .sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 600 11px/1 var(--font-lab);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    border: 2.5px solid var(--color-ink);
+    border-radius: 999px;
+    padding: 7px 11px;
+    box-shadow: 2px 2px 0 var(--color-ink);
+    white-space: nowrap;
+  }
+
+  /* Translucent washi tape strip. Position it with utilities. */
+  .tape {
+    position: absolute;
+    width: 92px;
+    height: 26px;
+    background: rgba(255, 212, 71, 0.6);
+    border-left: 2px dashed rgba(26, 26, 46, 0.12);
+    border-right: 2px dashed rgba(26, 26, 46, 0.12);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .tape.blue {
+    background: rgba(106, 165, 255, 0.5);
+  }
+  .tape.pink {
+    background: rgba(255, 155, 210, 0.55);
+  }
+
+  /* Torn-paper chip edge. */
+  .torn {
+    clip-path: polygon(
+      2% 8%, 10% 0%, 22% 6%, 35% 1%, 48% 7%, 61% 0%, 74% 6%, 87% 1%, 98% 7%,
+      100% 50%, 97% 92%, 86% 100%, 73% 94%, 60% 100%, 47% 93%, 34% 100%, 21% 94%, 9% 100%, 1% 92%, 0% 50%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-chunky {
+    transition: none;
+  }
 }

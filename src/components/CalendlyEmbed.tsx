@@ -1,12 +1,8 @@
 "use client";
 
 import { InlineWidget } from "react-calendly";
+import { site } from "@/data/site";
 
 export default function CalendlyEmbed() {
-  return (
-    <InlineWidget
-      url="https://calendly.com/musab-work17/30min"
-      styles={{ height: "100%", minHeight: "600px", width: "100%" }}
-    />
-  );
+  return <InlineWidget url={site.calendly} styles={{ height: "700px", width: "100%" }} />;
 }

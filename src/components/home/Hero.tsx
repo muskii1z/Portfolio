@@ -1,17 +1,11 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
+import { heroStats as stats } from "@/data/home";
+import { site } from "@/data/site";
 import { Pop } from "./Pop";
 import { Sticker } from "./Sticker";
 import { Polaroid } from "./Polaroid";
 import { ScribbleBox, Squiggle } from "./Doodle";
-
-/** Quick stats printed in the polaroid's bottom margin. Edit freely. */
-const stats: { label: string; value: string }[] = [
-  { label: "Name", value: "Musab Saraswat" },
-  { label: "Based", value: "Dallas, TX" },
-  { label: "Role", value: "AI Engineer" },
-  { label: "Also", value: "Founder @ Starline Labs" },
-];
 
 function HeadshotCard({ hasPhoto, priority = false }: { hasPhoto: boolean; priority?: boolean }) {
   return (
@@ -81,7 +75,7 @@ export function Hero({ hasPhoto }: { hasPhoto: boolean }) {
               <span className="absolute inset-0 rounded-full bg-done motion-safe:animate-ping opacity-60" />
               <span className="relative w-2.5 h-2.5 rounded-full bg-done border border-ink" />
             </span>
-            Open to AI engineering roles + good problems
+            {site.availability}
           </p>
 
           <h2 className="mt-5 font-display font-semibold text-ink text-[clamp(30px,4.6vw,52px)] leading-[1.08] max-w-[18ch] text-balance">
@@ -97,13 +91,16 @@ export function Hero({ hasPhoto }: { hasPhoto: boolean }) {
             version real people use every day.
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-9 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
             <Link href="/contact" className="btn-chunky bg-ink! text-white!">
               Contact me
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <a href="#work" className="btn-chunky bg-idea!">
               See my work
+            </a>
+            <a href={site.resume.pdf} target="_blank" rel="noopener noreferrer" className="btn-chunky">
+              <FileText size={18} aria-hidden="true" /> Résumé
             </a>
           </div>
 

@@ -1,36 +1,4 @@
-/** Hand-drawn SVG bits: arrows, a squiggle underline, a scribbled box. */
-
-export function ArrowDoodle({
-  className,
-  flip = false,
-}: {
-  className?: string;
-  flip?: boolean;
-}) {
-  return (
-    <svg
-      viewBox="0 0 60 40"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-      style={flip ? { transform: "scaleX(-1)" } : undefined}
-    >
-      <path
-        d="M4 34 C 18 30, 30 20, 50 8"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M40 6 L 51 7 L 47 17"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+/** Hand-drawn SVG bits: a squiggle underline and a scribbled box. */
 
 export function Squiggle({ className }: { className?: string }) {
   return (

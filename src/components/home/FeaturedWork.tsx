@@ -1,18 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import type { Project } from "@/data/projects";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { clientLine, type CaseStudy } from "@/data/work";
+import { CardVisual } from "@/components/work/CardVisual";
+import { lookFor } from "@/components/work/accent";
 import { Sticker } from "./Sticker";
 
-const looks = [
-  { block: "bg-ink text-white", tab: "bg-learn text-ink", tape: "" },
-  { block: "bg-idea text-ink", tab: "bg-ink text-white", tape: "blue" },
-  { block: "bg-learn text-ink", tab: "bg-idea text-ink", tape: "pink" },
-];
-
-export function FeaturedWork({ projects }: { projects: Project[] }) {
+export function FeaturedWork({ projects }: { projects: CaseStudy[] }) {
   return (
-    <section id="work" className="relative px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+    <section id="work" className="relative px-4 sm:px-6 py-16 sm:py-24 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <p className="font-hand text-2xl text-muted -rotate-2">stuff I&apos;ve shipped</p>
         <h2 className="font-pixel font-bold text-ink leading-none tracking-tight text-[clamp(44px,9vw,104px)] mt-1">
@@ -21,7 +16,8 @@ export function FeaturedWork({ projects }: { projects: Project[] }) {
 
         <div className="mt-12 flex flex-col gap-14">
           {projects.map((p, i) => {
-            const look = looks[i % looks.length];
+            const look = lookFor(p.accent);
+            const live = p.status === "live" || p.status === "shipped";
             return (
               <article key={p.slug} className="relative">
                 <span
@@ -37,41 +33,42 @@ export function FeaturedWork({ projects }: { projects: Project[] }) {
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="font-lab text-xs uppercase tracking-[0.12em] opacity-80">● {p.timeline}</span>
-                      {p.status === "shipped" && <Sticker tint="done">shipped</Sticker>}
+                      {live && <Sticker tint="done">{p.status}</Sticker>}
+                      {p.status === "in-progress" && <Sticker tint="idea">in progress</Sticker>}
                     </div>
-                    <h3 className="mt-4 font-display font-bold text-[clamp(34px,5vw,56px)] leading-none">
-                      {p.title}
-                    </h3>
-                    <p className="mt-4 font-body font-semibold text-lg leading-relaxed opacity-90 max-w-md">
-                      {p.tagline}
-                    </p>
+                    <p className="mt-4 font-lab text-xs font-semibold uppercase tracking-[0.12em] opacity-75">{clientLine(p)}</p>
+                    <h3 className="mt-2 font-display font-bold text-[clamp(34px,5vw,56px)] leading-none">{p.title}</h3>
+                    <p className="mt-4 font-body font-semibold text-lg leading-relaxed opacity-90 max-w-md">{p.tagline}</p>
+
+                    <dl className="mt-6 grid grid-cols-2 gap-4 max-w-md">
+                      {p.metrics.slice(0, 2).map((m) => (
+                        <div key={m.label} className="border-l-[3px] border-current pl-3">
+                          <dt className="sr-only">{m.label}</dt>
+                          <dd className="font-display font-bold text-2xl sm:text-3xl leading-none">{m.value}</dd>
+                          <dd className="mt-1.5 font-body font-bold text-sm leading-snug opacity-80">{m.label}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
                     <Link
-                      href={`/projects/${p.slug}`}
+                      href={`/work/${p.slug}`}
                       className="mt-7 inline-flex items-center gap-1.5 font-lab text-xs font-semibold uppercase tracking-[0.14em] border-b-2 border-current pb-1 hover:opacity-70 transition-opacity"
                     >
-                      View project <ArrowUpRight size={15} aria-hidden="true" />
+                      Read the case study <ArrowUpRight size={15} aria-hidden="true" />
                     </Link>
                   </div>
 
-                  {p.imgSrc && (
-                    <div className="relative">
-                      <span className={`tape -top-3 left-8 -rotate-6 ${look.tape}`} />
-                      <span className={`tape -top-3 right-8 rotate-6 ${look.tape}`} />
-                      <div className={`relative aspect-[4/3] overflow-hidden rounded-xl border-[3px] border-ink bg-surface`}>
-                        <Image
-                          src={p.imgSrc}
-                          alt={`${p.title} screenshot`}
-                          fill
-                          sizes="(min-width: 768px) 520px, 100vw"
-                          className="object-contain p-3"
-                        />
-                      </div>
-                    </div>
-                  )}
+                  <CardVisual cs={p} sizes="(min-width: 768px) 520px, 100vw" />
                 </div>
               </article>
             );
           })}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link href="/work" className="btn-chunky bg-idea!">
+            See all work <ArrowRight size={18} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

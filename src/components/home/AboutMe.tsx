@@ -1,9 +1,8 @@
+import Link from "next/link";
 import { Bot, Database, Smartphone, Layers, Sparkles, Terminal } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { fastFacts, currently } from "@/data/home";
 import { Pop } from "./Pop";
-
-/** Fast facts on the index card. Replace the bracketed blanks with your own. */
-const fastFacts = ["[fast fact #1]", "[fast fact #2]", "[fast fact #3]"];
 
 const skills: { label: string; bg: string; Icon: LucideIcon }[] = [
   { label: "AI agents", bg: "bg-idea", Icon: Bot },
@@ -76,9 +75,18 @@ export function AboutMe() {
               <span className="tape pink -top-3 left-6 rotate-[-6deg]" />
               <p className="font-lab text-[11px] uppercase tracking-[0.12em] text-muted">currently</p>
               <ul className="mt-3 space-y-2.5 font-body font-bold text-[15px] leading-snug text-ink">
-                <li>→ shipping AI agents into production</li>
-                <li>→ writing <em className="not-italic underline decoration-2 underline-offset-4">Loop to Harness</em>, an 11-day course on building agents</li>
-                <li>→ building in public on YouTube + LinkedIn</li>
+                {currently.map((c) => (
+                  <li key={c.text}>
+                    →{" "}
+                    {c.href ? (
+                      <Link href={c.href} className="underline decoration-2 underline-offset-4 hover:text-muted">
+                        {c.text}
+                      </Link>
+                    ) : (
+                      c.text
+                    )}
+                  </li>
+                ))}
               </ul>
             </div>
           </Pop>

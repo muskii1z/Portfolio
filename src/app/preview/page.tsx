@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { detailPages } from "@/data/work";
 
 const devices = [
   { name: "iPhone SE", width: 375, height: 667 },
@@ -12,11 +13,12 @@ const devices = [
 
 const pages = [
   { name: "Home", path: "/" },
-  { name: "Projects", path: "/projects" },
-  { name: "VitalzHub", path: "/projects/vitalz-hub" },
+  { name: "Work", path: "/work" },
+  ...detailPages().map((cs) => ({ name: cs.title, path: `/work/${cs.slug}` })),
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
   { name: "Resume", path: "/resume" },
+  { name: "404", path: "/this-page-does-not-exist" },
 ];
 
 export default function PreviewPage() {

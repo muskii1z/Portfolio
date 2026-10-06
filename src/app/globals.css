@@ -35,19 +35,6 @@
   --font-pixel: var(--font-pixelify), "Courier New", ui-monospace, monospace;
 }
 
-/* Legacy tokens still read by the not-yet-redone pages. */
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --muted: #666666;
-  --border: #e5e5e5;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
-
 ::selection {
   background: var(--color-ink);
   color: #ffffff;

@@ -1,16 +1,5 @@
-import { Sticker, type Tint } from "./Sticker";
-
-const stack: { label: string; tint: Tint }[] = [
-  { label: "Next.js", tint: "surface" },
-  { label: "React Native", tint: "learn-soft" },
-  { label: "TypeScript", tint: "idea-soft" },
-  { label: "Python", tint: "done-soft" },
-  { label: "Claude API", tint: "build" },
-  { label: "RAG", tint: "read" },
-  { label: "n8n", tint: "warm" },
-  { label: "Supabase", tint: "done" },
-  { label: "Claude Code", tint: "idea" },
-];
+import { stack } from "@/data/home";
+import { Sticker } from "./Sticker";
 
 export function BuiltWith() {
   return (

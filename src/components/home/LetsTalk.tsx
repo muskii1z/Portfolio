@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Mail, CalendarDays, FileText } from "lucide-react";
+import { site } from "@/data/site";
 
-const EMAIL = "musab.work17@gmail.com";
+const EMAIL = site.email;
 
 export function LetsTalk() {
   return (
@@ -23,7 +24,7 @@ export function LetsTalk() {
           <Link href="/contact" className="btn-chunky bg-done!">
             <CalendarDays size={18} aria-hidden="true" /> Book a call
           </Link>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-chunky">
+          <a href={site.resume.pdf} target="_blank" rel="noopener noreferrer" className="btn-chunky">
             <FileText size={18} aria-hidden="true" /> Résumé
           </a>
         </div>

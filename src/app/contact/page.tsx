@@ -1,42 +1,54 @@
+import { Mail, FileText } from "lucide-react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
+import { site, socials } from "@/data/site";
+import { PageHeader } from "@/components/shared/PageHeader";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Contact - Musab Saraswat",
-  description: "Get in touch with Musab Saraswat",
-};
+export const metadata = pageMetadata({
+  title: "Contact",
+  description: "Get in touch with Musab Saraswat about AI engineer and forward deployed engineer roles.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-      <h1 className="text-3xl font-bold tracking-tight mb-4">Let&apos;s Talk</h1>
-      <p className="text-neutral-600 mb-8">
-        Need help figuring out where AI fits in your product? Let&apos;s talk.
-      </p>
-
-      <CalendlyEmbed />
-
-      <div className="mt-12 space-y-4 text-neutral-600">
-        <p className="font-medium text-black">You can also find me on:</p>
-        <div className="space-y-3">
-          <a
-            href="https://www.linkedin.com/in/musab-saraswat-a42944230/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-black hover:opacity-60 transition-opacity"
-          >
-            LinkedIn
+    <div className="pb-24">
+      <PageHeader
+        kicker="your move"
+        title="LET'S TALK"
+        intro={
+          <>
+            I&apos;m looking for AI engineer and forward deployed engineer roles. If you&apos;re hiring, building
+            something with AI, or want to compare notes, reach out. I&apos;m based in Dallas–Fort Worth and open to
+            remote, hybrid, travel, and relocation.
+          </>
+        }
+      >
+        <div className="mt-8 flex flex-wrap gap-4">
+          <a href={`mailto:${site.email}`} className="btn-chunky bg-idea!">
+            <Mail size={18} aria-hidden="true" /> {site.email}
           </a>
-          <a
-            href="mailto:musab.work17@gmail.com"
-            className="block text-black hover:opacity-60 transition-opacity"
-          >
-            musab.work17@gmail.com
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="btn-chunky">
+              <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="currentColor" aria-hidden="true">
+                <path d={s.path} />
+              </svg>
+              {s.label}
+            </a>
+          ))}
+          <a href={site.resume.pdf} target="_blank" rel="noopener noreferrer" className="btn-chunky">
+            <FileText size={18} aria-hidden="true" /> Résumé
           </a>
         </div>
-        <p className="text-sm text-neutral-400 pt-2">
-          Based in Dallas-Fort Worth · Available for remote and hybrid roles
-        </p>
-      </div>
+      </PageHeader>
+
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+        <p className="font-hand text-2xl text-muted -rotate-1">or grab 30 minutes</p>
+        <div className="relative mt-4 blk overflow-hidden">
+          <span className="tape -top-3 left-12 -rotate-6" />
+          <CalendlyEmbed />
+        </div>
+      </section>
     </div>
   );
 }

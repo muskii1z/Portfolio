@@ -26,9 +26,9 @@ export const vitalzHub: CaseStudy = {
   whatIBuilt: [
     "The prototype, solo: a Next.js app wrapped for iOS and Android with Capacitor, with bloodwork history, trend comparisons, plain-English explanations of each marker, and a supplement shop",
     "A Python service using Docling to pull tables and values out of lab-report PDFs",
-    "The platform, with one other engineer: a FastAPI backend and Next.js apps for patients, staff, and lab partners",
-    "Role-based access for 5 user types (patient, nurse, doctor, admin, lab partner), enforced by a test that checks every API route",
-    "Lab-report ingestion across multiple lab formats into one shared dictionary of biomarkers",
+    "The platform, with one other engineer: a FastAPI backend and Next.js apps. My part was the patient app: lab results, progress tracking, and AI-drafted care plans with PDF export and Arabic support",
+    "Role-based access for 5 user types (patient, nurse, practitioner, doctor, admin), enforced by a test that checks every API route",
+    "Lab-report ingestion for 2 lab vendors into a shared dictionary of 47 curated biomarkers (parser built by my teammate)",
     "AI-drafted care plans that a doctor reviews, edits, and signs off before a patient sees them",
     "Deployment on AWS (EC2, CloudFront) with GitHub Actions CI and end-to-end tests across every role",
   ],

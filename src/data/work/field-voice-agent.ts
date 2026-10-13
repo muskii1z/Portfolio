@@ -7,7 +7,7 @@ export const fieldVoiceAgent: CaseStudy = {
   // The end client is a nonprofit and stays anonymous: never name it anywhere on the site.
   client: { name: "a nonprofit's field teams", public: false, via: "Camel Case Labs" },
   tagline:
-    "A mobile app where field staff log their visits by speaking, and the evaluation harness that keeps the agent honest.",
+    "A mobile app where field staff log their visits by speaking, and the fixes that made the agent reliable in the field.",
   role: "Mobile app, matching, evaluation, and production fixes (a teammate built the agent's backend orchestration)",
   timeline: "May 2026 – Present",
   year: 2026,
@@ -26,9 +26,9 @@ export const fieldVoiceAgent: CaseStudy = {
     "Field staff visit sites all day and had to log every visit in forms afterward. A voice agent lets them just say what happened. The hard part was making it dependable: speech-to-text mishears place names, and an agent that logs the wrong site, or says it logged something it didn't, is worse than no agent at all.",
   whatIBuilt: [
     "The React Native app: record a visit, transcribe it with Groq Whisper, and let the agent draft the activity log for review",
-    "A matcher that resolves a spoken location against 922 records by checking how many of the name's distinctive words were heard, ignoring filler words, and tolerating transcription typos",
+    "A matcher that resolves a spoken location against 922 records by checking how many of the name's distinctive words were heard, ignoring filler words, and tolerating transcription typos; it had only been scoring the first 500 of 900+ sites, so I fixed that and backed it with 27 regression tests",
     "Confidence and ambiguity thresholds: when two locations score too close, the app asks the user to pick instead of guessing",
-    "A read-only evaluation harness: a test suite of real cases, a snapshot of production data to replay them against, a runner, and a review page",
+    "The start of a read-only evaluation harness: production failures turned into test cases, replayed against a snapshot of production data, with a runner and a review page",
     "Fixes for failures found in live use: the agent reporting outreach it never logged, action types hardcoded instead of read from the database, and permission gaps that locked out 2 manager roles",
   ],
   decisions: [
@@ -38,9 +38,9 @@ export const fieldVoiceAgent: CaseStudy = {
       result: "Below a confidence threshold, or when two sites score too close, the app shows what it heard and lets the user choose.",
     },
     {
-      title: "Test changes against real cases before shipping",
+      title: "Turn production failures into test cases",
       why: "Every prompt or tool change risked breaking something that worked the day before.",
-      result: "Changes are scored against real production cases, replayed from a snapshot, before release.",
+      result: "Each failure became a test case replayed against a snapshot of production data, so a fix is checked against the exact case that broke.",
     },
     {
       title: "Handle errors by what the user can do about them",

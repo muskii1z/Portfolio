@@ -18,7 +18,7 @@ export const boutlook: CaseStudy = {
   stack: ["React Native", "Expo", "TypeScript", "TanStack Query", "Zustand", "Firebase Cloud Messaging", "EAS"],
   metrics: [
     { value: "2", label: "app stores: App Store and Google Play" },
-    { value: "12", label: "store builds shipped through v1.1.0" },
+    { value: "11", label: "screens rebuilt across 6 feature areas" },
     { value: "Solo", label: "engineer on the mobile app" },
   ],
   problem:
@@ -44,7 +44,7 @@ export const boutlook: CaseStudy = {
     {
       title: "Small releases driven by real use",
       why: "Staff found problems using the app day to day, like unmarked days showing as unavailable and a button that was too easy to tap by accident.",
-      result: "12 store builds through v1.1.0, each fixing what staff actually ran into.",
+      result: "Steady releases through v1.1.1, each fixing what staff actually ran into.",
     },
   ],
   results: [

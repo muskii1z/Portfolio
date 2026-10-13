@@ -42,7 +42,7 @@ export const ragMotion: CaseStudy = {
   },
   evaluation: {
     approach:
-      "A 55-question test set with expected, acceptable, and forbidden answers for each question, drafted with AI and reviewed by me against my exercise science training. Retrieval is scored with recall and MRR. Answers are checked in code for valid citations, honest coverage claims, and forbidden recommendations, with an AI judge used only for a few labeling rules. Every before-and-after comparison is averaged over 3 runs, because single runs proved too noisy to trust. The program agent has its own evaluation: 12 fictional clients, scored by the same code checks the agent has to pass.",
+      "A 55-question test set with expected, acceptable, and forbidden answers for each question, drafted with AI and reviewed by me against my exercise science training. Retrieval is scored with recall and MRR. Answers are checked in code for valid citations, honest coverage claims, and forbidden recommendations, with an AI judge used only for a few labeling rules. Every before-and-after comparison is averaged over 3 runs, because single runs proved too noisy to trust. The program agent has its own evaluation: 14 fictional clients, scored by the same code checks the agent has to pass.",
     results: [
       { value: "40/40", label: "citations valid" },
       { value: "0.80 → 0.83", label: "exercise recall after adding filters" },

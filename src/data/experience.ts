@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
       {
         title: "Founder & AI Engineer",
         type: "Founder",
-        period: "Summer 2025 – Present",
+        period: "Feb 2025 – Present",
         current: true,
         summary:
           "Co-founded Aigentic Bros in 2025 (AI education and client automations); formed Starline Labs LLC in February 2026 to take on AI engineering contracts.",

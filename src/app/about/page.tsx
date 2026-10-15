@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "How Musab Saraswat went from an exercise science degree to building and shipping AI products: RAG systems, agents, and mobile apps.",
+    "Musab Saraswat is an AI engineer who builds AI systems that hold up in production: agents, RAG, and the evals that prove they work.",
   path: "/about",
 });
 
@@ -49,27 +49,12 @@ export default function AboutPage() {
 
         <div className="space-y-5 font-body font-semibold text-lg sm:text-xl leading-relaxed text-ink/85 max-w-[62ch]">
           <p>
-            I studied exercise science at UT Arlington and finished my degree at 20, right as AI was taking off.
-            I didn&apos;t have a computer science degree, so I learned the way I still learn best: by building.
+            I build AI systems that hold up in production: agents, RAG, and the evals that prove they work.
           </p>
           <p>
-            I started with automation in n8n, then co-founded Aigentic Bros with my brother, teaching people to use
-            AI and building automations and custom GPTs for clients. Once we had paying customers, I taught myself
-            to go from no-code tools to writing real code with Claude Code and Codex.
-          </p>
-          <p>
-            I came in as a product manager, but the deeper I got into the engineering, the more I realized building
-            is what I love. So I formed my own company, Starline Labs, and took contracts as an AI engineer: a
-            healthcare platform that got funded, a combat sports app that&apos;s live in both app stores, and a voice
-            agent that field teams use to log their work.
-          </p>
-          <p>
-            Now I&apos;m building{" "}
-            <Link href="/work/rag-motion" className="underline decoration-2 underline-offset-4 decoration-learn hover:text-ink">
-              rag-motion
-            </Link>
-            , an AI assistant for strength coaches that puts my exercise science background to work. I&apos;m looking
-            for a team where I can build AI products and work directly with the people who use them.
+            As founder of Starline Labs I&apos;ve shipped a healthcare platform that got funded, a combat sports app
+            live in the App Store and Google Play, and a voice agent field teams use every day. Next, I want to do it
+            on a team that ships AI products to real users.
           </p>
         </div>
       </section>

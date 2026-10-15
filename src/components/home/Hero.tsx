@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, FileText } from "lucide-react";
 import { heroStats as stats } from "@/data/home";
-import { site } from "@/data/site";
+import { site, socials } from "@/data/site";
 import { Pop } from "./Pop";
 import { Sticker } from "./Sticker";
 import { Polaroid } from "./Polaroid";
 import { ScribbleBox, Squiggle } from "./Doodle";
+
+const youtube = socials.find((s) => s.label === "YouTube")!;
 
 function HeadshotCard({ hasPhoto, priority = false }: { hasPhoto: boolean; priority?: boolean }) {
   return (
@@ -45,12 +47,6 @@ export function Hero({ hasPhoto }: { hasPhoto: boolean }) {
               Musab Saraswat
             </h1>
 
-            <Pop rotate={-6} delay={0.1} className="hidden md:block absolute -top-6 -left-8">
-              <Sticker tint="done-soft">builds AI things</Sticker>
-            </Pop>
-            <Pop rotate={5} delay={0.18} className="hidden md:block absolute -top-6 -right-8">
-              <Sticker tint="idea-soft">sweats the details</Sticker>
-            </Pop>
             <Pop rotate={-4} delay={0.26} className="hidden md:block absolute -bottom-8 -left-10">
               <span className="inline-block font-hand text-2xl font-bold bg-idea border-[2.5px] border-ink rounded-md px-3 py-0.5 shadow-[3px_3px_0_var(--color-ink)]">
                 AI Engineer
@@ -66,7 +62,6 @@ export function Hero({ hasPhoto }: { hasPhoto: boolean }) {
           {/* Same tags as a wrapped row on phones */}
           <div className="md:hidden flex flex-wrap justify-center gap-2 mt-6">
             <Sticker tint="idea">AI Engineer</Sticker>
-            <Sticker tint="done-soft">builds AI things</Sticker>
             <Sticker tint="learn-soft">DFW → worldwide</Sticker>
           </div>
 
@@ -101,6 +96,12 @@ export function Hero({ hasPhoto }: { hasPhoto: boolean }) {
             </a>
             <a href={site.resume.pdf} target="_blank" rel="noopener noreferrer" className="btn-chunky">
               <FileText size={18} aria-hidden="true" /> Résumé
+            </a>
+            <a href={youtube.href} target="_blank" rel="noopener noreferrer" className="btn-chunky bg-watch!">
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
+                <path d={youtube.path} />
+              </svg>
+              Watch my AI content
             </a>
           </div>
 

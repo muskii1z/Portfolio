@@ -50,10 +50,10 @@ export function AboutMe() {
               About me
             </h2>
             <p className="mt-7 font-body font-semibold text-lg sm:text-xl leading-relaxed text-ink max-w-[52ch] mx-auto text-pretty">
-              I&apos;m an AI engineer who gets a little too excited about making
-              AI actually useful. I care about the parts everyone skips: the
-              evals, the edge cases, the harness around the model. And shipping
-              things people use every day.
+              I&apos;m an AI engineer who builds the whole system: the retrieval,
+              the agents, the evals that prove a change actually helped, and the
+              app real people use on the other end. I ship to production, not to
+              a demo.
             </p>
 
             <ul className="mt-10 flex flex-wrap justify-center gap-3">

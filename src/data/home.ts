@@ -18,9 +18,9 @@ export const proof: { value: string; label: string; href: string }[] = [
 
 /** The lined index card in "who I am". Keep each one short. */
 export const fastFacts = [
-  "Exercise science degree at 20",
-  "Big combat sports fan",
-  "Always planning the next trip",
+  "Big sports fan",
+  "Traveler",
+  "Home chef",
 ];
 
 /** The sticky note in "who I am". */
